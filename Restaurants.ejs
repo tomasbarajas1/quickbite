@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurants Listings - QuickBite</title>
+        <link rel="stylesheet" href="Restaurants.ejs">
+    </head>
+    <body>
+        <h1>Restaurants Listings - QuickBite</h1>
+        <div>
+            <% if(sample.length > 0)    {
+                sample.forEach(function(data)   {   %>
+                    <form action="/ViewMenu" method="POST">
+                        <div class="card">
+                            <h1><%= data.restaurant %></h1>
+                            <h2>Category: <%= data.type %></h2>
+                            <input type="hidden" name="restaurant" value="<%= data.course %>">
+                            <button type="submit">View Menu</button>
+                        </div>
+                    </form>
+        </div>
+    </body>
+</html>
