@@ -53,6 +53,10 @@ app.post("/ViewMenu", (req, res) => {
     })
 })
 
-app.listen(port, () =>  {
-    console.log("Server: https://localhost:3000")
-})
+if (require.main === module) {
+    app.listen(port, () =>  {
+        console.log("Server: https://localhost:3000")
+    })
+}
+
+module.exports = app;
