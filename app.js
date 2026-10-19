@@ -15,7 +15,7 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "restaurants",
+    database: "quickbite",
 })
 
 app.set("view engine", "ejs");
@@ -29,7 +29,7 @@ app.get("/", (req, res) =>  {
         else    {
             console.log("Connected to database.")
         }
-        query = "";
+        query = "SELECT * FROM restaurants";
         db.query(query, (err, results) =>   {
             if (err)    {
                 return console.log(err);
@@ -40,6 +40,16 @@ app.get("/", (req, res) =>  {
                 res.send("No available restaurants.");
             }
         })
+    })
+})
+
+app.post("/ViewMenu", (req, res) => {
+    db.query("SELECT * FROM menus WHERE Restaurant_Name = ?", [req.body.restaurant], (err, result) =>  {
+        if (err)
+            res.send("Error loading menu.")
+        else    {
+            res.render("Menu.ejs", {sample: result, name: req.body.restaurant})
+        }
     })
 })
 
