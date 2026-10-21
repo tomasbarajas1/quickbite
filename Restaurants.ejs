@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurants Listings - QuickBite</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Restaurants Listings - QuickBite</h1>
+        <div>
+            <% if(sample.length > 0)    {
+                sample.forEach(function(data)   {   %>
+                    <form action="/ViewMenu" method="POST">
+                        <div class="card">
+                            <h1><%= data.Restaurant_Name %></h1>
+                            <h2>Category: <%= data.FoodType %></h2>
+                            <input type="hidden" name="restaurant" value="<%= data.Restaurant_Name %>">
+                            <button type="submit">View Menu</button>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+               <% } ) } %>
+        </div>
+    </body>
+</html>
