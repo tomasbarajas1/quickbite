@@ -1,0 +1,19 @@
+{
+  "name": "quickbite",
+  "version": "1.0.0",
+  "description": "QuickBite - Online ordering and pickup platform for restaurants",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0",
+    "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
